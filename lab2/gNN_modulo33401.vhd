@@ -16,27 +16,34 @@ end gNN_modulo33401;
 
 architecture gNN_modulo33401_arch of gNN_modulo33401 is
 	signal B : unsigned(46 downto 0);
-	signal C : unsigned(40 downto 0);
-	signal D : signed(46 downto 0);
+	signal C : unsigned(41 downto 0);
+	signal D : unsigned(46 downto 0);
 	signal E : unsigned(31 downto 0);
 	signal F : unsigned(19 downto 0);
-	signal G : signed(31 downto 0);
-	signal H : signed(16 downto 0);
+	signal G : unsigned(31 downto 0);
+	signal H : unsigned(16 downto 0);
 	begin
+		-- D = A*32147
 		B <= (unsigned(A) & "000000000000000") + 
 				("00000000000" & unsigned(A) & "0000") +
 				("00000000000000" & unsigned(A) & "0") +
 				("000000000000000" & unsigned(A));
-		C <= (unsigned(A) & "000000000") +
-				("00" & unsigned(A) & "0000000");
-		D <= signed(B) - signed("000000" + C);
-		H <= signed(D(46) & D(46 downto 31));
+		C <= ("0" & unsigned(A) & "000000000") +
+				("000" & unsigned(A) & "0000000");
+		D <= unsigned(B) - unsigned("00000" + C);
+		
+		-- H = D >> 30
+		-- H = A/33401 (floor)
+		H <= D(46 downto 30);
+		
+		-- G = A mod 33401
 		E <= (unsigned(H) & "000000000000000") + 
 				("000000" & unsigned(H) & "000000000") +
 				("00000000" & unsigned(H) & "0000000") +
 				("000000000000000" & unsigned(H));
 		F <= (unsigned(H) & "000");
-		G <= (signed(A)) - (signed(E) - signed("000000000000" & F));
+		G <= (unsigned(A)) - (unsigned(E) - unsigned("000000000000" & F));
+		
 		Afloor33401 <= std_logic_vector(H);
 		Amod33401 <= std_logic_vector(G(15 downto 0));
 		
