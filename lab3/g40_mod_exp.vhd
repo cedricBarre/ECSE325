@@ -22,6 +22,7 @@ architecture g40_mod_exp_arch of g40_mod_exp is
 	signal k: unsigned(13 downto 0); -- Counter: k <= d always
 	signal s_int: unsigned(15 downto 0); -- Running modulo: s_int < 33401 always
 	signal cs: unsigned(25 downto 0); -- Product of c and s
+	signal started: std_logic;
 	
 	-- Instantiation
 	SIGNAL A : STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -41,28 +42,33 @@ architecture g40_mod_exp_arch of g40_mod_exp is
 	Amod33401 => Amod33401
 	);     
 	
-	modulo : process(reset, clk, start)
+	
+	modulo : process(reset, clk)
 		begin
 			if reset = '1' then
 				k <= to_unsigned(0, 14);
-				s_int <= to_unsigned(1, 16);
-				s <= std_logic_vector(s_int); -- Initialize to 1
+				s_int <= (0 => '1', others => '0');
 				ready <= '0';
-			elsif start = '0' then -- i think we might not need this if anymore
-				ready <= '0';
-			elsif start = '1' then
-				k <= to_unsigned(1, 14);
-				ready <= '0';
+				started <= '0';
+				s <= (0 => '1', others => '0'); -- Initialize to 1
+				A <= (others => '0');
+				
+			elsif started = '0' then
+				if start = '1' then
+					started <= '1';
+				end if;
+				
 			elsif rising_edge(clk) then
-				if k > unsigned(d) then
+				if k >= unsigned(d) then
 					ready <= '1';
-				elsif k >= unsigned(1) then
+					s <= std_logic_vector(s_int);
+
+				else
+					A <= ("000000" & std_logic_vector(unsigned(c) * s_int));
 					ready <= '0';
 					k <= (k+1);
-					cs <= unsigned(c) * s_int;
-					A <= ("000000" & std_logic_vector(cs));
 					s_int <= unsigned(Amod33401);
-					s <= std_logic_vector(s_int);
+					--s <= std_logic_vector(s_int);
 			end if; -- if k >= d
 		end if; -- if reset = '1'
 	end process;

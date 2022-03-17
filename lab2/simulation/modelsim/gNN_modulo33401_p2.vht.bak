@@ -26,7 +26,8 @@
 -- 
 
 LIBRARY ieee;                                               
-USE ieee.std_logic_1164.all;                                
+USE ieee.std_logic_1164.all;
+use ieee.numeric_std.all;                           
 
 ENTITY gNN_modulo33401_vhd_tst IS
 END gNN_modulo33401_vhd_tst;
@@ -54,12 +55,13 @@ BEGIN
 always : PROCESS                                              
 -- optional sensitivity list                                  
 -- (        )                                                 
--- variable declarations                                      
+-- variable declarations   
 BEGIN                                                         
-	label : for MSB in 0 to 255
-		A <= unsigned(MSB) & "000000";
+	for MSB in 0 to 255 loop
+		A <= std_logic_vector(to_unsigned(MSB, 8) & x"000000");
+		assert (to_unsigned(MSB, 8) & x"000000") mod 33401 = unsigned(Amod33401) report "Modulo circuit returned unexpected output"
 		wait for 8 ns;
-	end loop label;
+	end loop;
 	WAIT;                                                        
 END PROCESS always;                                          
 END gNN_modulo33401_arch;
