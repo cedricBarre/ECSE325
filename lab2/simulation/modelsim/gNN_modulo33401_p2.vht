@@ -59,6 +59,7 @@ always : PROCESS
 BEGIN                                                         
 	for MSB in 0 to 255 loop
 		A <= std_logic_vector(to_unsigned(MSB, 8) & x"000000");
+		assert (to_unsigned(MSB, 8) & x"000000") mod 33401 = unsigned(Amod33401) report "Modulo circuit returned unexpected output"
 		wait for 8 ns;
 	end loop;
 	WAIT;                                                        

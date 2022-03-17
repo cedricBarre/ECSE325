@@ -1,5 +1,5 @@
 --
--- entity name: gNN_mod_exp(replace “NN” by your group’s number)
+-- entity name: g40_mod_exp
 -- implements s = c^d modulo 33401
 --
 -- Version 1.0
@@ -10,13 +10,11 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 entity g40_mod_exp is
-	port (d : 		in std_logic_vector(13 downto 0);
-			c : 		in std_logic_vector(9 downto 0);
-			start : 	in std_logic;
-			clk : 	in std_logic;
-			reset : 	in std_logic;
-			s : 		out std_logic_vector(15 downto 0);
-			ready : 	out std_logic);
+port ( d : in std_logic_vector(13 downto 0);
+c : in std_logic_vector(9 downto 0);
+start : in std_logic;
+clk : in std_logic;
+reset : in std_logic;
+s : out std_logic_vector(15 downto 0);
+ready : out std_logic);
 end g40_mod_exp;
-
-architecture g40_mod_exp_arch of gNN_
