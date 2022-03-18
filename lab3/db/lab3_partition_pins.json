@@ -72,23 +72,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "reset",
-					"strict" : false
-				},
-				{
-					"name" : "clk",
-					"strict" : false
-				},
-				{
 					"name" : "d[13]",
-					"strict" : false
-				},
-				{
-					"name" : "d[12]",
-					"strict" : false
-				},
-				{
-					"name" : "d[11]",
 					"strict" : false
 				},
 				{
@@ -136,7 +120,23 @@
 					"strict" : false
 				},
 				{
+					"name" : "d[12]",
+					"strict" : false
+				},
+				{
+					"name" : "d[11]",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
 					"name" : "start",
+					"strict" : false
+				},
+				{
+					"name" : "reset",
 					"strict" : false
 				},
 				{

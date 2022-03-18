@@ -71,19 +71,18 @@ BEGIN
    number <= (others => '1');
 	d <= std_logic_vector(to_unsigned(5,14));
 		  label1 : for k in 1 to 10 loop
-				reset <= '0';
-				wait for 100 ns;
 				reset <= '1';
 				wait for 100 ns;
 				reset <= '0';
 				c <= std_logic_vector(number);
 				start <= '1';
+				wait for 100 ns;
+				start <= '0';
 				while ready = '0' loop
 					clk <= '1';
-					wait for 100 ns;
-					start <= '0';
+					wait for 50 ns;
 					clk <= '0';
-					wait for 100 ns;
+					wait for 50 ns;
 				end loop;
 				
 				number <= "0" & number(9 downto 1);
