@@ -25,13 +25,4 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Compiling entity g40_mod_exp_vhd_tst
 -- Compiling architecture g40_mod_exp_arch of g40_mod_exp_vhd_tst
 
-} {} {}} P:/ECSE325/lab2/gNN_modulo33401.vhd {1 {vcom -work work -2002 -explicit -stats=none P:/ECSE325/lab2/gNN_modulo33401.vhd
-Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Compiling entity gNN_modulo33401
--- Compiling architecture gNN_modulo33401_arch of gNN_modulo33401
-
 } {} {}}

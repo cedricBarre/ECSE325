@@ -25,12 +25,13 @@ architecture g40_mod_exp_arch of g40_mod_exp is
 	signal state : states;
 	
 	-- Internal signals
-	signal counter : unsigned(13 downto 0); -- Counter: k <= d always
+	signal counter : integer range 0 to 16383; -- Counter in range of 14 bits, like d
 	signal s_int : unsigned(15 downto 0); -- Running modulo: s_int < 33401 always
 	
 	-- Instantiation
 	signal A : STD_LOGIC_VECTOR(31 DOWNTO 0);
 	signal Amod33401 : STD_LOGIC_VECTOR(15 DOWNTO 0);
+	signal Afloor33401 : STD_LOGIC_VECTOR(16 DOWNTO 0);
 	
 	-- Component declarations
 	component g40_modulo33401
@@ -42,30 +43,34 @@ architecture g40_mod_exp_arch of g40_mod_exp is
 	begin
 		-- Component port mappings
 		modulator : g40_modulo33401 port map(A => A,
-													 Amod33401 => Amod33401);
+															Afloor33401 => Afloor33401,
+															Amod33401 => Amod33401);
+		
 		-- Processes								 
 		state_update : process( clk, reset, start )
 			begin
 				if reset = '1' then
 					state <= reset_state;
-				elsif start = '1' then
+					counter <= 0;
+					A <= (0 => '1', others => '0');
+				elsif start = '1' and state = reset_state then
 					state <= calculating_state;
 				elsif rising_edge( clk ) then
 					case state is
 						when reset_state =>
 							-- reset_state behavior: handled below
 						when calculating_state =>
-							if counter >= unsigned(d) then
+							if counter >= to_integer(unsigned(d)) then
 								state <= finished_state;
+								counter <= 0;
 							else
 								A <= ("000000" & std_logic_vector(unsigned(c) * s_int));
 								counter <= ( counter + 1 );
-								s_int <= unsigned(Amod33401);
 							end if; -- if counter >= d
 						when finished_state =>
 							-- finished state behavior: handled below
 					end case; --state
-				end if; 
+				end if;	
 		end process; -- state_update
 		
 		output_logic : process( state )
@@ -77,8 +82,13 @@ architecture g40_mod_exp_arch of g40_mod_exp is
 					when calculating_state =>
 						-- calculating state behavior: nothing to do
 					when finished_state =>
-						s <= std_logic_vector(s_int);
+						s <= std_logic_vector(unsigned(Amod33401));
 						ready <= '1';
 				end case; --state
 		end process; -- output_logic
+		
+		internal_s : process( Amod33401 ) 
+			begin 
+				s_int <= unsigned(Amod33401);
+		end process;
 end g40_mod_exp_arch;

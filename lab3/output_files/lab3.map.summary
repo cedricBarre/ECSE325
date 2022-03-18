@@ -1,10 +1,10 @@
-Analysis & Synthesis Status : Successful - Thu Mar 17 21:21:59 2022
-Quartus Prime Version : 21.1.0 Build 842 10/21/2021 SJ Lite Edition
+Analysis & Synthesis Status : Successful - Fri Mar 18 11:22:31 2022
+Quartus Prime Version : 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 Revision Name : lab3
 Top-level Entity Name : g40_mod_exp
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
-Total registers : 58
+Total registers : 43
 Total pins : 44
 Total virtual pins : 0
 Total block memory bits : 0

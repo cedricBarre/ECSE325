@@ -69,8 +69,10 @@ BEGIN
 always : PROCESS    
 BEGIN
    number <= (others => '1');
+	clk <= '0';
+	start <= '0';
 	d <= std_logic_vector(to_unsigned(5,14));
-		  label1 : for k in 1 to 10 loop
+		  label1 : for k in 1 to 11 loop
 				reset <= '1';
 				wait for 100 ns;
 				reset <= '0';
@@ -80,9 +82,9 @@ BEGIN
 				start <= '0';
 				while ready = '0' loop
 					clk <= '1';
-					wait for 50 ns;
+					wait for 100 ns;
 					clk <= '0';
-					wait for 50 ns;
+					wait for 100 ns;
 				end loop;
 				
 				number <= "0" & number(9 downto 1);
