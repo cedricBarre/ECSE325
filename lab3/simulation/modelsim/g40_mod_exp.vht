@@ -69,19 +69,20 @@ BEGIN
 always : PROCESS    
 BEGIN
    number <= (others => '1');
+	clk <= '0';
+	start <= '0';
 	d <= std_logic_vector(to_unsigned(5,14));
-		  label1 : for k in 1 to 10 loop
-				reset <= '0';
-				wait for 100 ns;
+		  label1 : for k in 1 to 11 loop
 				reset <= '1';
 				wait for 100 ns;
 				reset <= '0';
 				c <= std_logic_vector(number);
 				start <= '1';
+				wait for 100 ns;
+				start <= '0';
 				while ready = '0' loop
 					clk <= '1';
 					wait for 100 ns;
-					start <= '0';
 					clk <= '0';
 					wait for 100 ns;
 				end loop;

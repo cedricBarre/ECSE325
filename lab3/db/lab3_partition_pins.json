@@ -72,11 +72,15 @@
 					"strict" : false
 				},
 				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
 					"name" : "reset",
 					"strict" : false
 				},
 				{
-					"name" : "clk",
+					"name" : "start",
 					"strict" : false
 				},
 				{
@@ -133,10 +137,6 @@
 				},
 				{
 					"name" : "d[0]",
-					"strict" : false
-				},
-				{
-					"name" : "start",
 					"strict" : false
 				},
 				{
