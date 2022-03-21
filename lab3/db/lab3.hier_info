@@ -123,23 +123,23 @@ reset => state.finished_state.IN1
 reset => state.calculating_state.ACLR
 reset => state.reset_state.PRESET
 reset => state.reset_state.IN1
-s[0] <= s[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
-s[1] <= s[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
-s[2] <= s[2]$latch.DB_MAX_OUTPUT_PORT_TYPE
-s[3] <= s[3]$latch.DB_MAX_OUTPUT_PORT_TYPE
-s[4] <= s[4]$latch.DB_MAX_OUTPUT_PORT_TYPE
-s[5] <= s[5]$latch.DB_MAX_OUTPUT_PORT_TYPE
-s[6] <= s[6]$latch.DB_MAX_OUTPUT_PORT_TYPE
-s[7] <= s[7]$latch.DB_MAX_OUTPUT_PORT_TYPE
-s[8] <= s[8]$latch.DB_MAX_OUTPUT_PORT_TYPE
-s[9] <= s[9]$latch.DB_MAX_OUTPUT_PORT_TYPE
-s[10] <= s[10]$latch.DB_MAX_OUTPUT_PORT_TYPE
-s[11] <= s[11]$latch.DB_MAX_OUTPUT_PORT_TYPE
-s[12] <= s[12]$latch.DB_MAX_OUTPUT_PORT_TYPE
-s[13] <= s[13]$latch.DB_MAX_OUTPUT_PORT_TYPE
-s[14] <= s[14]$latch.DB_MAX_OUTPUT_PORT_TYPE
-s[15] <= s[15]$latch.DB_MAX_OUTPUT_PORT_TYPE
-ready <= ready$latch.DB_MAX_OUTPUT_PORT_TYPE
+s[0] << s[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
+s[1] << s[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
+s[2] << s[2]$latch.DB_MAX_OUTPUT_PORT_TYPE
+s[3] << s[3]$latch.DB_MAX_OUTPUT_PORT_TYPE
+s[4] << s[4]$latch.DB_MAX_OUTPUT_PORT_TYPE
+s[5] << s[5]$latch.DB_MAX_OUTPUT_PORT_TYPE
+s[6] << s[6]$latch.DB_MAX_OUTPUT_PORT_TYPE
+s[7] << s[7]$latch.DB_MAX_OUTPUT_PORT_TYPE
+s[8] << s[8]$latch.DB_MAX_OUTPUT_PORT_TYPE
+s[9] << s[9]$latch.DB_MAX_OUTPUT_PORT_TYPE
+s[10] << s[10]$latch.DB_MAX_OUTPUT_PORT_TYPE
+s[11] << s[11]$latch.DB_MAX_OUTPUT_PORT_TYPE
+s[12] << s[12]$latch.DB_MAX_OUTPUT_PORT_TYPE
+s[13] << s[13]$latch.DB_MAX_OUTPUT_PORT_TYPE
+s[14] << s[14]$latch.DB_MAX_OUTPUT_PORT_TYPE
+s[15] << s[15]$latch.DB_MAX_OUTPUT_PORT_TYPE
+ready << ready$latch.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |g40_mod_exp|g40_modulo33401:modulator
