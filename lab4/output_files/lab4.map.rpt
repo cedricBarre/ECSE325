@@ -1,0 +1,778 @@
+Analysis & Synthesis report for lab4
+Thu Mar 24 17:17:20 2022
+Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. Registers Removed During Synthesis
+ 10. Removed Registers Triggering Further Register Optimizations
+ 11. General Register Statistics
+ 12. Registers Packed Into Inferred Megafunctions
+ 13. Source assignments for altshift_taps:H_rtl_0|shift_taps_0vu:auto_generated|altsyncram_rr91:altsyncram5
+ 14. Source assignments for altshift_taps:H9_rtl_0|shift_taps_uuu:auto_generated|altsyncram_lr91:altsyncram4
+ 15. Parameter Settings for Inferred Entity Instance: altshift_taps:H_rtl_0
+ 16. Parameter Settings for Inferred Entity Instance: altshift_taps:H9_rtl_0
+ 17. altshift_taps Parameter Settings by Entity Instance
+ 18. Post-Synthesis Netlist Statistics for Top Partition
+ 19. Elapsed Time Per Partition
+ 20. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2016  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Intel and sold by Intel or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Thu Mar 24 17:17:19 2022       ;
+; Quartus Prime Version           ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
+; Revision Name                   ; lab4                                        ;
+; Top-level Entity Name           ; g40_modulo33401_pipelined                   ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 451                                         ;
+; Total pins                      ; 66                                          ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 156                                         ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                                    ;
++---------------------------------------------------------------------------------+---------------------------+--------------------+
+; Option                                                                          ; Setting                   ; Default Value      ;
++---------------------------------------------------------------------------------+---------------------------+--------------------+
+; Device                                                                          ; 5CSEMA5F31C6              ;                    ;
+; Top-level entity name                                                           ; g40_modulo33401_pipelined ; lab4               ;
+; Family name                                                                     ; Cyclone V                 ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                       ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation      ; On                        ; On                 ;
+; Enable compact report table                                                     ; Off                       ; Off                ;
+; Restructure Multiplexers                                                        ; Auto                      ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                       ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                       ; Off                ;
+; Preserve fewer node names                                                       ; On                        ; On                 ;
+; OpenCore Plus hardware evaluation                                               ; Enable                    ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001              ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993                 ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto                      ; Auto               ;
+; Safe State Machine                                                              ; Off                       ; Off                ;
+; Extract Verilog State Machines                                                  ; On                        ; On                 ;
+; Extract VHDL State Machines                                                     ; On                        ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                       ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000                      ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                       ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                        ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                        ; On                 ;
+; Parallel Synthesis                                                              ; On                        ; On                 ;
+; DSP Block Balancing                                                             ; Auto                      ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                        ; On                 ;
+; Power-Up Don't Care                                                             ; On                        ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                       ; Off                ;
+; Remove Duplicate Registers                                                      ; On                        ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                       ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                       ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                       ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                       ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                       ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                        ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                       ; Off                ;
+; Optimization Technique                                                          ; Balanced                  ; Balanced           ;
+; Carry Chain Length                                                              ; 70                        ; 70                 ;
+; Auto Carry Chains                                                               ; On                        ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                        ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                       ; Off                ;
+; Auto ROM Replacement                                                            ; On                        ; On                 ;
+; Auto RAM Replacement                                                            ; On                        ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                        ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto                      ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto                      ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                        ; On                 ;
+; Strict RAM Replacement                                                          ; Off                       ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                        ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                       ; Off                ;
+; Auto Resource Sharing                                                           ; Off                       ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                       ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                       ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                       ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                        ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                       ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                        ; On                 ;
+; Report Parameter Settings                                                       ; On                        ; On                 ;
+; Report Source Assignments                                                       ; On                        ; On                 ;
+; Report Connectivity Checks                                                      ; On                        ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                       ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                         ; 3                  ;
+; PowerPlay Power Optimization During Synthesis                                   ; Normal compilation        ; Normal compilation ;
+; HDL message level                                                               ; Level2                    ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                       ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000                      ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000                      ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                       ; 100                ;
+; Clock MUX Protection                                                            ; On                        ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                       ; Off                ;
+; Block Design Naming                                                             ; Auto                      ; Auto               ;
+; SDC constraint protection                                                       ; Off                       ; Off                ;
+; Synthesis Effort                                                                ; Auto                      ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                        ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                       ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium                    ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto                      ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                        ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                        ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                       ; Off                ;
++---------------------------------------------------------------------------------+---------------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 6           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 6           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
+;     Processor 5            ;   0.0%      ;
+;     Processor 6            ;   0.0%      ;
++----------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                 ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                             ; Library ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------+---------+
+; g40_modulo33401_pipelined.vhd    ; yes             ; User VHDL File               ; P:/ECSE325/lab4/g40_modulo33401_pipelined.vhd                            ;         ;
+; altshift_taps.tdf                ; yes             ; Megafunction                 ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/altshift_taps.tdf ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/altdpram.inc      ;         ;
+; lpm_counter.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/lpm_counter.inc   ;         ;
+; lpm_compare.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/lpm_compare.inc   ;         ;
+; lpm_constant.inc                 ; yes             ; Megafunction                 ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/lpm_constant.inc  ;         ;
+; db/shift_taps_0vu.tdf            ; yes             ; Auto-Generated Megafunction  ; P:/ECSE325/lab4/db/shift_taps_0vu.tdf                                    ;         ;
+; db/altsyncram_rr91.tdf           ; yes             ; Auto-Generated Megafunction  ; P:/ECSE325/lab4/db/altsyncram_rr91.tdf                                   ;         ;
+; db/cntr_thf.tdf                  ; yes             ; Auto-Generated Megafunction  ; P:/ECSE325/lab4/db/cntr_thf.tdf                                          ;         ;
+; db/cmpr_b9c.tdf                  ; yes             ; Auto-Generated Megafunction  ; P:/ECSE325/lab4/db/cmpr_b9c.tdf                                          ;         ;
+; db/shift_taps_uuu.tdf            ; yes             ; Auto-Generated Megafunction  ; P:/ECSE325/lab4/db/shift_taps_uuu.tdf                                    ;         ;
+; db/altsyncram_lr91.tdf           ; yes             ; Auto-Generated Megafunction  ; P:/ECSE325/lab4/db/altsyncram_lr91.tdf                                   ;         ;
+; db/cntr_ohf.tdf                  ; yes             ; Auto-Generated Megafunction  ; P:/ECSE325/lab4/db/cntr_ohf.tdf                                          ;         ;
+; db/cmpr_a9c.tdf                  ; yes             ; Auto-Generated Megafunction  ; P:/ECSE325/lab4/db/cmpr_a9c.tdf                                          ;         ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimate of Logic utilization (ALMs needed) ; 233       ;
+;                                             ;           ;
+; Combinational ALUT usage for logic          ; 271       ;
+;     -- 7 input functions                    ; 0         ;
+;     -- 6 input functions                    ; 0         ;
+;     -- 5 input functions                    ; 3         ;
+;     -- 4 input functions                    ; 2         ;
+;     -- <=3 input functions                  ; 266       ;
+;                                             ;           ;
+; Dedicated logic registers                   ; 451       ;
+;                                             ;           ;
+; I/O pins                                    ; 66        ;
+; Total MLAB memory bits                      ; 0         ;
+; Total block memory bits                     ; 156       ;
+;                                             ;           ;
+; Total DSP Blocks                            ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 483       ;
+; Total fan-out                               ; 1958      ;
+; Average fan-out                             ; 2.21      ;
++---------------------------------------------+-----------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                      ;
++----------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------------------------+---------------------------+--------------+
+; Compilation Hierarchy Node             ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                         ; Entity Name               ; Library Name ;
++----------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------------------------+---------------------------+--------------+
+; |g40_modulo33401_pipelined             ; 271 (250)           ; 451 (441)                 ; 156               ; 0          ; 66   ; 0            ; |g40_modulo33401_pipelined                                                                                  ; g40_modulo33401_pipelined ; work         ;
+;    |altshift_taps:H9_rtl_0|            ; 7 (0)               ; 4 (0)                     ; 51                ; 0          ; 0    ; 0            ; |g40_modulo33401_pipelined|altshift_taps:H9_rtl_0                                                           ; altshift_taps             ; work         ;
+;       |shift_taps_uuu:auto_generated|  ; 7 (2)               ; 4 (2)                     ; 51                ; 0          ; 0    ; 0            ; |g40_modulo33401_pipelined|altshift_taps:H9_rtl_0|shift_taps_uuu:auto_generated                             ; shift_taps_uuu            ; work         ;
+;          |altsyncram_lr91:altsyncram4| ; 0 (0)               ; 0 (0)                     ; 51                ; 0          ; 0    ; 0            ; |g40_modulo33401_pipelined|altshift_taps:H9_rtl_0|shift_taps_uuu:auto_generated|altsyncram_lr91:altsyncram4 ; altsyncram_lr91           ; work         ;
+;          |cntr_ohf:cntr1|              ; 5 (5)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |g40_modulo33401_pipelined|altshift_taps:H9_rtl_0|shift_taps_uuu:auto_generated|cntr_ohf:cntr1              ; cntr_ohf                  ; work         ;
+;    |altshift_taps:H_rtl_0|             ; 14 (0)              ; 6 (0)                     ; 105               ; 0          ; 0    ; 0            ; |g40_modulo33401_pipelined|altshift_taps:H_rtl_0                                                            ; altshift_taps             ; work         ;
+;       |shift_taps_0vu:auto_generated|  ; 14 (7)              ; 6 (3)                     ; 105               ; 0          ; 0    ; 0            ; |g40_modulo33401_pipelined|altshift_taps:H_rtl_0|shift_taps_0vu:auto_generated                              ; shift_taps_0vu            ; work         ;
+;          |altsyncram_rr91:altsyncram5| ; 0 (0)               ; 0 (0)                     ; 105               ; 0          ; 0    ; 0            ; |g40_modulo33401_pipelined|altshift_taps:H_rtl_0|shift_taps_0vu:auto_generated|altsyncram_rr91:altsyncram5  ; altsyncram_rr91           ; work         ;
+;          |cntr_thf:cntr1|              ; 7 (7)               ; 3 (3)                     ; 0                 ; 0          ; 0    ; 0            ; |g40_modulo33401_pipelined|altshift_taps:H_rtl_0|shift_taps_0vu:auto_generated|cntr_thf:cntr1               ; cntr_thf                  ; work         ;
++----------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------------------------+---------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                ;
++---------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
+; Name                                                                                        ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF  ;
++---------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
+; altshift_taps:H9_rtl_0|shift_taps_uuu:auto_generated|altsyncram_lr91:altsyncram4|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 3            ; 17           ; 3            ; 17           ; 51   ; None ;
+; altshift_taps:H_rtl_0|shift_taps_0vu:auto_generated|altsyncram_rr91:altsyncram5|ALTSYNCRAM  ; AUTO ; Simple Dual Port ; 7            ; 15           ; 7            ; 15           ; 105  ; None ;
++---------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
+
+
++----------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                               ;
++-----------------------------------------+----------------------------------------+
+; Register name                           ; Reason for Removal                     ;
++-----------------------------------------+----------------------------------------+
+; F6[0..2]                                ; Stuck at GND due to stuck port data_in ;
+; E6[0..8]                                ; Stuck at GND due to stuck port data_in ;
+; C1[0..6]                                ; Stuck at GND due to stuck port data_in ;
+; B1[0..3]                                ; Stuck at GND due to stuck port data_in ;
+; F7[0..2]                                ; Stuck at GND due to stuck port data_in ;
+; E7[0..6]                                ; Stuck at GND due to stuck port data_in ;
+; C2[0..6]                                ; Stuck at GND due to stuck port data_in ;
+; B2[0]                                   ; Stuck at GND due to stuck port data_in ;
+; F[0..2]                                 ; Stuck at GND due to stuck port data_in ;
+; C[0..6]                                 ; Stuck at GND due to stuck port data_in ;
+; A9[31]                                  ; Lost fanout                            ;
+; A8[31]                                  ; Lost fanout                            ;
+; A7[31]                                  ; Lost fanout                            ;
+; A6[31]                                  ; Lost fanout                            ;
+; A5[31]                                  ; Lost fanout                            ;
+; A4[31]                                  ; Lost fanout                            ;
+; A3[31]                                  ; Lost fanout                            ;
+; A9[30]                                  ; Lost fanout                            ;
+; A8[30]                                  ; Lost fanout                            ;
+; A7[30]                                  ; Lost fanout                            ;
+; A6[30]                                  ; Lost fanout                            ;
+; A5[30]                                  ; Lost fanout                            ;
+; A4[30]                                  ; Lost fanout                            ;
+; A3[30]                                  ; Lost fanout                            ;
+; A9[29]                                  ; Lost fanout                            ;
+; A8[29]                                  ; Lost fanout                            ;
+; A7[29]                                  ; Lost fanout                            ;
+; A6[29]                                  ; Lost fanout                            ;
+; A5[29]                                  ; Lost fanout                            ;
+; A4[29]                                  ; Lost fanout                            ;
+; A3[29]                                  ; Lost fanout                            ;
+; A9[28]                                  ; Lost fanout                            ;
+; A8[28]                                  ; Lost fanout                            ;
+; A7[28]                                  ; Lost fanout                            ;
+; A6[28]                                  ; Lost fanout                            ;
+; A5[28]                                  ; Lost fanout                            ;
+; A4[28]                                  ; Lost fanout                            ;
+; A3[28]                                  ; Lost fanout                            ;
+; A9[27]                                  ; Lost fanout                            ;
+; A8[27]                                  ; Lost fanout                            ;
+; A7[27]                                  ; Lost fanout                            ;
+; A6[27]                                  ; Lost fanout                            ;
+; A5[27]                                  ; Lost fanout                            ;
+; A4[27]                                  ; Lost fanout                            ;
+; A3[27]                                  ; Lost fanout                            ;
+; A9[26]                                  ; Lost fanout                            ;
+; A8[26]                                  ; Lost fanout                            ;
+; A7[26]                                  ; Lost fanout                            ;
+; A6[26]                                  ; Lost fanout                            ;
+; A5[26]                                  ; Lost fanout                            ;
+; A4[26]                                  ; Lost fanout                            ;
+; A3[26]                                  ; Lost fanout                            ;
+; A9[25]                                  ; Lost fanout                            ;
+; A8[25]                                  ; Lost fanout                            ;
+; A7[25]                                  ; Lost fanout                            ;
+; A6[25]                                  ; Lost fanout                            ;
+; A5[25]                                  ; Lost fanout                            ;
+; A4[25]                                  ; Lost fanout                            ;
+; A3[25]                                  ; Lost fanout                            ;
+; A9[24]                                  ; Lost fanout                            ;
+; A8[24]                                  ; Lost fanout                            ;
+; A7[24]                                  ; Lost fanout                            ;
+; A6[24]                                  ; Lost fanout                            ;
+; A5[24]                                  ; Lost fanout                            ;
+; A4[24]                                  ; Lost fanout                            ;
+; A3[24]                                  ; Lost fanout                            ;
+; A9[23]                                  ; Lost fanout                            ;
+; A8[23]                                  ; Lost fanout                            ;
+; A7[23]                                  ; Lost fanout                            ;
+; A6[23]                                  ; Lost fanout                            ;
+; A5[23]                                  ; Lost fanout                            ;
+; A4[23]                                  ; Lost fanout                            ;
+; A3[23]                                  ; Lost fanout                            ;
+; A9[22]                                  ; Lost fanout                            ;
+; A8[22]                                  ; Lost fanout                            ;
+; A7[22]                                  ; Lost fanout                            ;
+; A6[22]                                  ; Lost fanout                            ;
+; A5[22]                                  ; Lost fanout                            ;
+; A4[22]                                  ; Lost fanout                            ;
+; A3[22]                                  ; Lost fanout                            ;
+; A9[21]                                  ; Lost fanout                            ;
+; A8[21]                                  ; Lost fanout                            ;
+; A7[21]                                  ; Lost fanout                            ;
+; A6[21]                                  ; Lost fanout                            ;
+; A5[21]                                  ; Lost fanout                            ;
+; A4[21]                                  ; Lost fanout                            ;
+; A3[21]                                  ; Lost fanout                            ;
+; A9[20]                                  ; Lost fanout                            ;
+; A8[20]                                  ; Lost fanout                            ;
+; A7[20]                                  ; Lost fanout                            ;
+; A6[20]                                  ; Lost fanout                            ;
+; A5[20]                                  ; Lost fanout                            ;
+; A4[20]                                  ; Lost fanout                            ;
+; A3[20]                                  ; Lost fanout                            ;
+; A9[19]                                  ; Lost fanout                            ;
+; A8[19]                                  ; Lost fanout                            ;
+; A7[19]                                  ; Lost fanout                            ;
+; A6[19]                                  ; Lost fanout                            ;
+; A5[19]                                  ; Lost fanout                            ;
+; A4[19]                                  ; Lost fanout                            ;
+; A3[19]                                  ; Lost fanout                            ;
+; A9[18]                                  ; Lost fanout                            ;
+; A8[18]                                  ; Lost fanout                            ;
+; A7[18]                                  ; Lost fanout                            ;
+; A6[18]                                  ; Lost fanout                            ;
+; A5[18]                                  ; Lost fanout                            ;
+; A4[18]                                  ; Lost fanout                            ;
+; A3[18]                                  ; Lost fanout                            ;
+; A9[17]                                  ; Lost fanout                            ;
+; A8[17]                                  ; Lost fanout                            ;
+; A7[17]                                  ; Lost fanout                            ;
+; A6[17]                                  ; Lost fanout                            ;
+; A5[17]                                  ; Lost fanout                            ;
+; A4[17]                                  ; Lost fanout                            ;
+; A3[17]                                  ; Lost fanout                            ;
+; A9[16]                                  ; Lost fanout                            ;
+; A8[16]                                  ; Lost fanout                            ;
+; A7[16]                                  ; Lost fanout                            ;
+; A6[16]                                  ; Lost fanout                            ;
+; A5[16]                                  ; Lost fanout                            ;
+; A4[16]                                  ; Lost fanout                            ;
+; A3[16]                                  ; Lost fanout                            ;
+; G9[16..31]                              ; Lost fanout                            ;
+; F[16]                                   ; Lost fanout                            ;
+; F7[16]                                  ; Lost fanout                            ;
+; F6[16]                                  ; Lost fanout                            ;
+; F[17]                                   ; Lost fanout                            ;
+; F7[17]                                  ; Lost fanout                            ;
+; F6[17]                                  ; Lost fanout                            ;
+; F[18]                                   ; Lost fanout                            ;
+; F7[18]                                  ; Lost fanout                            ;
+; F6[18]                                  ; Lost fanout                            ;
+; F[19]                                   ; Lost fanout                            ;
+; F7[19]                                  ; Lost fanout                            ;
+; F6[19]                                  ; Lost fanout                            ;
+; E[16..31]                               ; Lost fanout                            ;
+; E7[16..31]                              ; Lost fanout                            ;
+; E6[16..31]                              ; Lost fanout                            ;
+; E[0]                                    ; Merged with H8[0]                      ;
+; E[1]                                    ; Merged with H8[1]                      ;
+; E[2]                                    ; Merged with H8[2]                      ;
+; E[3]                                    ; Merged with H8[3]                      ;
+; E[4]                                    ; Merged with H8[4]                      ;
+; E[5]                                    ; Merged with H8[5]                      ;
+; E[6]                                    ; Merged with H8[6]                      ;
+; E7[7]                                   ; Merged with H7[0]                      ;
+; E7[8]                                   ; Merged with H7[1]                      ;
+; F6[3]                                   ; Merged with H6[0]                      ;
+; E6[9]                                   ; Merged with H6[0]                      ;
+; F6[4]                                   ; Merged with H6[1]                      ;
+; E6[10]                                  ; Merged with H6[1]                      ;
+; F6[5]                                   ; Merged with H6[2]                      ;
+; E6[11]                                  ; Merged with H6[2]                      ;
+; F6[6]                                   ; Merged with H6[3]                      ;
+; E6[12]                                  ; Merged with H6[3]                      ;
+; F6[7]                                   ; Merged with H6[4]                      ;
+; E6[13]                                  ; Merged with H6[4]                      ;
+; F6[8]                                   ; Merged with H6[5]                      ;
+; E6[14]                                  ; Merged with H6[5]                      ;
+; F6[9]                                   ; Merged with H6[6]                      ;
+; F6[10]                                  ; Merged with H6[7]                      ;
+; F6[11]                                  ; Merged with H6[8]                      ;
+; F6[12]                                  ; Merged with H6[9]                      ;
+; F6[13]                                  ; Merged with H6[10]                     ;
+; F6[14]                                  ; Merged with H6[11]                     ;
+; F6[15]                                  ; Merged with H6[12]                     ;
+; A3[0]                                   ; Merged with B[0]                       ;
+; A2[0]                                   ; Merged with B2[1]                      ;
+; A2[1]                                   ; Merged with B2[2]                      ;
+; A2[2]                                   ; Merged with B2[3]                      ;
+; F7[3]                                   ; Merged with H7[0]                      ;
+; F7[4]                                   ; Merged with H7[1]                      ;
+; F7[5]                                   ; Merged with H7[2]                      ;
+; F7[6]                                   ; Merged with H7[3]                      ;
+; F7[7]                                   ; Merged with H7[4]                      ;
+; F7[8]                                   ; Merged with H7[5]                      ;
+; F7[9]                                   ; Merged with H7[6]                      ;
+; F7[10]                                  ; Merged with H7[7]                      ;
+; F7[11]                                  ; Merged with H7[8]                      ;
+; F7[12]                                  ; Merged with H7[9]                      ;
+; F7[13]                                  ; Merged with H7[10]                     ;
+; F7[14]                                  ; Merged with H7[11]                     ;
+; F7[15]                                  ; Merged with H7[12]                     ;
+; F[3]                                    ; Merged with H8[0]                      ;
+; F[4]                                    ; Merged with H8[1]                      ;
+; F[5]                                    ; Merged with H8[2]                      ;
+; F[6]                                    ; Merged with H8[3]                      ;
+; F[7]                                    ; Merged with H8[4]                      ;
+; F[8]                                    ; Merged with H8[5]                      ;
+; F[9]                                    ; Merged with H8[6]                      ;
+; F[10]                                   ; Merged with H8[7]                      ;
+; F[11]                                   ; Merged with H8[8]                      ;
+; F[12]                                   ; Merged with H8[9]                      ;
+; F[13]                                   ; Merged with H8[10]                     ;
+; F[14]                                   ; Merged with H8[11]                     ;
+; F[15]                                   ; Merged with H8[12]                     ;
+; C[8]                                    ; Merged with A3[1]                      ;
+; C[7]                                    ; Merged with B[0]                       ;
+; C2[8]                                   ; Merged with B2[2]                      ;
+; C2[7]                                   ; Merged with B2[1]                      ;
+; B1[5]                                   ; Merged with A1[1]                      ;
+; C1[8]                                   ; Merged with A1[1]                      ;
+; B1[4]                                   ; Merged with A1[0]                      ;
+; C1[7]                                   ; Merged with A1[0]                      ;
+; B1[14]                                  ; Merged with A1[10]                     ;
+; B1[13]                                  ; Merged with A1[9]                      ;
+; B1[12]                                  ; Merged with A1[8]                      ;
+; B1[11]                                  ; Merged with A1[7]                      ;
+; B1[10]                                  ; Merged with A1[6]                      ;
+; B1[9]                                   ; Merged with A1[5]                      ;
+; B1[8]                                   ; Merged with A1[4]                      ;
+; B1[7]                                   ; Merged with A1[3]                      ;
+; B1[6]                                   ; Merged with A1[2]                      ;
+; Total Number of Removed Registers = 314 ;                                        ;
++-----------------------------------------+----------------------------------------+
+
+
++--------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                ;
++---------------+---------------------------+------------------------------------------------+
+; Register name ; Reason for Removal        ; Registers Removed due to This Register         ;
++---------------+---------------------------+------------------------------------------------+
+; A9[30]        ; Lost Fanouts              ; A8[30], A7[30], A6[30], A5[30], A4[30], A3[30] ;
+; A9[31]        ; Lost Fanouts              ; A8[31], A7[31], A6[31], A5[31], A4[31], A3[31] ;
+; A9[29]        ; Lost Fanouts              ; A8[29], A7[29], A6[29], A5[29], A4[29], A3[29] ;
+; A9[22]        ; Lost Fanouts              ; A8[22], A7[22], A6[22], A5[22], A4[22], A3[22] ;
+; A9[23]        ; Lost Fanouts              ; A8[23], A7[23], A6[23], A5[23], A4[23], A3[23] ;
+; A9[24]        ; Lost Fanouts              ; A8[24], A7[24], A6[24], A5[24], A4[24], A3[24] ;
+; A9[25]        ; Lost Fanouts              ; A8[25], A7[25], A6[25], A5[25], A4[25], A3[25] ;
+; A9[26]        ; Lost Fanouts              ; A8[26], A7[26], A6[26], A5[26], A4[26], A3[26] ;
+; A9[27]        ; Lost Fanouts              ; A8[27], A7[27], A6[27], A5[27], A4[27], A3[27] ;
+; A9[28]        ; Lost Fanouts              ; A8[28], A7[28], A6[28], A5[28], A4[28], A3[28] ;
+; A9[21]        ; Lost Fanouts              ; A8[21], A7[21], A6[21], A5[21], A4[21], A3[21] ;
+; A9[20]        ; Lost Fanouts              ; A8[20], A7[20], A6[20], A5[20], A4[20], A3[20] ;
+; A9[19]        ; Lost Fanouts              ; A8[19], A7[19], A6[19], A5[19], A4[19], A3[19] ;
+; A9[18]        ; Lost Fanouts              ; A8[18], A7[18], A6[18], A5[18], A4[18], A3[18] ;
+; A9[17]        ; Lost Fanouts              ; A8[17], A7[17], A6[17], A5[17], A4[17], A3[17] ;
+; A9[16]        ; Lost Fanouts              ; A8[16], A7[16], A6[16], A5[16], A4[16], A3[16] ;
+; C1[4]         ; Stuck at GND              ; C2[4], C[4]                                    ;
+;               ; due to stuck port data_in ;                                                ;
+; C1[5]         ; Stuck at GND              ; C2[5], C[5]                                    ;
+;               ; due to stuck port data_in ;                                                ;
+; C1[6]         ; Stuck at GND              ; C2[6], C[6]                                    ;
+;               ; due to stuck port data_in ;                                                ;
+; F6[0]         ; Stuck at GND              ; F7[0], F[0]                                    ;
+;               ; due to stuck port data_in ;                                                ;
+; F6[1]         ; Stuck at GND              ; F7[1], F[1]                                    ;
+;               ; due to stuck port data_in ;                                                ;
+; F6[2]         ; Stuck at GND              ; F7[2], F[2]                                    ;
+;               ; due to stuck port data_in ;                                                ;
+; C1[0]         ; Stuck at GND              ; C2[0], C[0]                                    ;
+;               ; due to stuck port data_in ;                                                ;
+; C1[1]         ; Stuck at GND              ; C2[1], C[1]                                    ;
+;               ; due to stuck port data_in ;                                                ;
+; C1[2]         ; Stuck at GND              ; C2[2], C[2]                                    ;
+;               ; due to stuck port data_in ;                                                ;
+; C1[3]         ; Stuck at GND              ; C2[3], C[3]                                    ;
+;               ; due to stuck port data_in ;                                                ;
+; F[16]         ; Lost Fanouts              ; F7[16], F6[16]                                 ;
+; F[17]         ; Lost Fanouts              ; F7[17], F6[17]                                 ;
+; F[18]         ; Lost Fanouts              ; F7[18], F6[18]                                 ;
+; F[19]         ; Lost Fanouts              ; F7[19], F6[19]                                 ;
+; E6[5]         ; Stuck at GND              ; E7[5]                                          ;
+;               ; due to stuck port data_in ;                                                ;
+; E6[4]         ; Stuck at GND              ; E7[4]                                          ;
+;               ; due to stuck port data_in ;                                                ;
+; E6[3]         ; Stuck at GND              ; E7[3]                                          ;
+;               ; due to stuck port data_in ;                                                ;
+; E6[2]         ; Stuck at GND              ; E7[2]                                          ;
+;               ; due to stuck port data_in ;                                                ;
+; E6[1]         ; Stuck at GND              ; E7[1]                                          ;
+;               ; due to stuck port data_in ;                                                ;
+; E6[0]         ; Stuck at GND              ; E7[0]                                          ;
+;               ; due to stuck port data_in ;                                                ;
+; B1[0]         ; Stuck at GND              ; B2[0]                                          ;
+;               ; due to stuck port data_in ;                                                ;
+; E6[6]         ; Stuck at GND              ; E7[6]                                          ;
+;               ; due to stuck port data_in ;                                                ;
++---------------+---------------------------+------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 451   ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Registers Packed Into Inferred Megafunctions     ;
++----------------------+--------------+------------+
+; Register Name        ; Megafunction ; Type       ;
++----------------------+--------------+------------+
+; Afloor33401[16]~reg0 ; H_rtl_0      ; SHIFT_TAPS ;
+; H10[16]              ; H_rtl_0      ; SHIFT_TAPS ;
+; H9[16]               ; H_rtl_0      ; SHIFT_TAPS ;
+; H8[16]               ; H_rtl_0      ; SHIFT_TAPS ;
+; H7[16]               ; H_rtl_0      ; SHIFT_TAPS ;
+; H6[16]               ; H_rtl_0      ; SHIFT_TAPS ;
+; H[16]                ; H_rtl_0      ; SHIFT_TAPS ;
+; A9[2..15]            ; H_rtl_0      ; SHIFT_TAPS ;
+; A8[2..15]            ; H_rtl_0      ; SHIFT_TAPS ;
+; A7[2..15]            ; H_rtl_0      ; SHIFT_TAPS ;
+; A6[2..15]            ; H_rtl_0      ; SHIFT_TAPS ;
+; A5[2..15]            ; H_rtl_0      ; SHIFT_TAPS ;
+; A4[2..15]            ; H_rtl_0      ; SHIFT_TAPS ;
+; A3[2..15]            ; H_rtl_0      ; SHIFT_TAPS ;
+; Afloor33401[0]~reg0  ; H9_rtl_0     ; SHIFT_TAPS ;
+; H10[0..12]           ; H9_rtl_0     ; SHIFT_TAPS ;
+; H9[0..12]            ; H9_rtl_0     ; SHIFT_TAPS ;
+; Afloor33401[1]~reg0  ; H9_rtl_0     ; SHIFT_TAPS ;
+; Afloor33401[2]~reg0  ; H9_rtl_0     ; SHIFT_TAPS ;
+; Afloor33401[3]~reg0  ; H9_rtl_0     ; SHIFT_TAPS ;
+; Afloor33401[4]~reg0  ; H9_rtl_0     ; SHIFT_TAPS ;
+; Afloor33401[5]~reg0  ; H9_rtl_0     ; SHIFT_TAPS ;
+; Afloor33401[6]~reg0  ; H9_rtl_0     ; SHIFT_TAPS ;
+; Afloor33401[7]~reg0  ; H9_rtl_0     ; SHIFT_TAPS ;
+; Afloor33401[8]~reg0  ; H9_rtl_0     ; SHIFT_TAPS ;
+; Afloor33401[9]~reg0  ; H9_rtl_0     ; SHIFT_TAPS ;
+; Afloor33401[10]~reg0 ; H9_rtl_0     ; SHIFT_TAPS ;
+; Afloor33401[11]~reg0 ; H9_rtl_0     ; SHIFT_TAPS ;
+; Afloor33401[12]~reg0 ; H9_rtl_0     ; SHIFT_TAPS ;
+; H7[9..12]            ; H9_rtl_0     ; SHIFT_TAPS ;
+; H6[9..12]            ; H9_rtl_0     ; SHIFT_TAPS ;
+; H[9..12]             ; H9_rtl_0     ; SHIFT_TAPS ;
++----------------------+--------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------+
+; Source assignments for altshift_taps:H_rtl_0|shift_taps_0vu:auto_generated|altsyncram_rr91:altsyncram5 ;
++---------------------------------+--------------------+------+------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                       ;
++---------------------------------+--------------------+------+------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                        ;
++---------------------------------+--------------------+------+------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------+
+; Source assignments for altshift_taps:H9_rtl_0|shift_taps_uuu:auto_generated|altsyncram_lr91:altsyncram4 ;
++---------------------------------+--------------------+------+-------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                        ;
++---------------------------------+--------------------+------+-------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                         ;
++---------------------------------+--------------------+------+-------------------------------------------+
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: altshift_taps:H_rtl_0 ;
++----------------+----------------+--------------------------------------+
+; Parameter Name ; Value          ; Type                                 ;
++----------------+----------------+--------------------------------------+
+; WIDTH_BYTEENA  ; 1              ; Untyped                              ;
+; NUMBER_OF_TAPS ; 1              ; Untyped                              ;
+; TAP_DISTANCE   ; 7              ; Untyped                              ;
+; WIDTH          ; 15             ; Untyped                              ;
+; POWER_UP_STATE ; DONT_CARE      ; Untyped                              ;
+; CBXI_PARAMETER ; shift_taps_0vu ; Untyped                              ;
++----------------+----------------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: altshift_taps:H9_rtl_0 ;
++----------------+----------------+---------------------------------------+
+; Parameter Name ; Value          ; Type                                  ;
++----------------+----------------+---------------------------------------+
+; WIDTH_BYTEENA  ; 1              ; Untyped                               ;
+; NUMBER_OF_TAPS ; 1              ; Untyped                               ;
+; TAP_DISTANCE   ; 3              ; Untyped                               ;
+; WIDTH          ; 17             ; Untyped                               ;
+; POWER_UP_STATE ; DONT_CARE      ; Untyped                               ;
+; CBXI_PARAMETER ; shift_taps_uuu ; Untyped                               ;
++----------------+----------------+---------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------+
+; altshift_taps Parameter Settings by Entity Instance ;
++----------------------------+------------------------+
+; Name                       ; Value                  ;
++----------------------------+------------------------+
+; Number of entity instances ; 2                      ;
+; Entity Instance            ; altshift_taps:H_rtl_0  ;
+;     -- NUMBER_OF_TAPS      ; 1                      ;
+;     -- TAP_DISTANCE        ; 7                      ;
+;     -- WIDTH               ; 15                     ;
+; Entity Instance            ; altshift_taps:H9_rtl_0 ;
+;     -- NUMBER_OF_TAPS      ; 1                      ;
+;     -- TAP_DISTANCE        ; 3                      ;
+;     -- WIDTH               ; 17                     ;
++----------------------------+------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 451                         ;
+;     plain             ; 451                         ;
+; arriav_lcell_comb     ; 271                         ;
+;     arith             ; 180                         ;
+;         0 data inputs ; 3                           ;
+;         1 data inputs ; 47                          ;
+;         2 data inputs ; 127                         ;
+;         3 data inputs ; 3                           ;
+;     normal            ; 12                          ;
+;         1 data inputs ; 4                           ;
+;         2 data inputs ; 1                           ;
+;         3 data inputs ; 2                           ;
+;         4 data inputs ; 2                           ;
+;         5 data inputs ; 3                           ;
+;     shared            ; 79                          ;
+;         1 data inputs ; 15                          ;
+;         2 data inputs ; 64                          ;
+; boundary_port         ; 66                          ;
+; stratixv_ram_block    ; 32                          ;
+;                       ;                             ;
+; Max LUT depth         ; 5.60                        ;
+; Average LUT depth     ; 2.74                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:06     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+    Info: Processing started: Thu Mar 24 17:16:56 2022
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off lab4 -c lab4
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file g40_mod_exp_revised.vhd
+    Info (12022): Found design unit 1: g40_mod_exp_revised-g40_mod_exp_revised_arch File: P:/ECSE325/lab4/g40_mod_exp_revised.vhd Line: 22
+    Info (12023): Found entity 1: g40_mod_exp_revised File: P:/ECSE325/lab4/g40_mod_exp_revised.vhd Line: 12
+Info (12021): Found 2 design units, including 1 entities, in source file g40_modulo33401_pipelined.vhd
+    Info (12022): Found design unit 1: g40_modulo33401_pipelined-g40_modulo33401_pipelined_arch File: P:/ECSE325/lab4/g40_modulo33401_pipelined.vhd Line: 18
+    Info (12023): Found entity 1: g40_modulo33401_pipelined File: P:/ECSE325/lab4/g40_modulo33401_pipelined.vhd Line: 11
+Info (12127): Elaborating entity "g40_modulo33401_pipelined" for the top level hierarchy
+Info (286030): Timing-Driven Synthesis is running
+Info (19000): Inferred 2 megafunctions from design logic
+    Info (276034): Inferred altshift_taps megafunction from the following design logic: "H_rtl_0"
+        Info (286033): Parameter NUMBER_OF_TAPS set to 1
+        Info (286033): Parameter TAP_DISTANCE set to 7
+        Info (286033): Parameter WIDTH set to 15
+        Info (286033): Parameter POWER_UP_STATE set to DONT_CARE
+    Info (276034): Inferred altshift_taps megafunction from the following design logic: "H9_rtl_0"
+        Info (286033): Parameter NUMBER_OF_TAPS set to 1
+        Info (286033): Parameter TAP_DISTANCE set to 3
+        Info (286033): Parameter WIDTH set to 17
+        Info (286033): Parameter POWER_UP_STATE set to DONT_CARE
+Info (12130): Elaborated megafunction instantiation "altshift_taps:H_rtl_0"
+Info (12133): Instantiated megafunction "altshift_taps:H_rtl_0" with the following parameter:
+    Info (12134): Parameter "NUMBER_OF_TAPS" = "1"
+    Info (12134): Parameter "TAP_DISTANCE" = "7"
+    Info (12134): Parameter "WIDTH" = "15"
+    Info (12134): Parameter "POWER_UP_STATE" = "DONT_CARE"
+Info (12021): Found 1 design units, including 1 entities, in source file db/shift_taps_0vu.tdf
+    Info (12023): Found entity 1: shift_taps_0vu File: P:/ECSE325/lab4/db/shift_taps_0vu.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_rr91.tdf
+    Info (12023): Found entity 1: altsyncram_rr91 File: P:/ECSE325/lab4/db/altsyncram_rr91.tdf Line: 28
+Info (12021): Found 1 design units, including 1 entities, in source file db/cntr_thf.tdf
+    Info (12023): Found entity 1: cntr_thf File: P:/ECSE325/lab4/db/cntr_thf.tdf Line: 28
+Info (12021): Found 1 design units, including 1 entities, in source file db/cmpr_b9c.tdf
+    Info (12023): Found entity 1: cmpr_b9c File: P:/ECSE325/lab4/db/cmpr_b9c.tdf Line: 23
+Info (12130): Elaborated megafunction instantiation "altshift_taps:H9_rtl_0"
+Info (12133): Instantiated megafunction "altshift_taps:H9_rtl_0" with the following parameter:
+    Info (12134): Parameter "NUMBER_OF_TAPS" = "1"
+    Info (12134): Parameter "TAP_DISTANCE" = "3"
+    Info (12134): Parameter "WIDTH" = "17"
+    Info (12134): Parameter "POWER_UP_STATE" = "DONT_CARE"
+Info (12021): Found 1 design units, including 1 entities, in source file db/shift_taps_uuu.tdf
+    Info (12023): Found entity 1: shift_taps_uuu File: P:/ECSE325/lab4/db/shift_taps_uuu.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_lr91.tdf
+    Info (12023): Found entity 1: altsyncram_lr91 File: P:/ECSE325/lab4/db/altsyncram_lr91.tdf Line: 28
+Info (12021): Found 1 design units, including 1 entities, in source file db/cntr_ohf.tdf
+    Info (12023): Found entity 1: cntr_ohf File: P:/ECSE325/lab4/db/cntr_ohf.tdf Line: 28
+Info (12021): Found 1 design units, including 1 entities, in source file db/cmpr_a9c.tdf
+    Info (12023): Found entity 1: cmpr_a9c File: P:/ECSE325/lab4/db/cmpr_a9c.tdf Line: 23
+Info (17049): 188 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 594 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 33 input pins
+    Info (21059): Implemented 33 output pins
+    Info (21061): Implemented 496 logic cells
+    Info (21064): Implemented 32 RAM segments
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 4948 megabytes
+    Info: Processing ended: Thu Mar 24 17:17:20 2022
+    Info: Elapsed time: 00:00:24
+    Info: Total CPU time (on all processors): 00:00:19
+
+

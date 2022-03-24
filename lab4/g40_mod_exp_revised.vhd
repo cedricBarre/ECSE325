@@ -9,7 +9,7 @@ library ieee; -- allows use of the std_logic_vector type
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity g40_mod_exp is
+entity g40_mod_exp_revised is
 	port ( d : 		in std_logic_vector(13 downto 0);
 			 c : 		in std_logic_vector(9 downto 0);
 			 start : in std_logic;
@@ -17,11 +17,11 @@ entity g40_mod_exp is
 			 reset : in std_logic;
 			 s : 		out std_logic_vector(15 downto 0);
 			 ready : out std_logic);
-end g40_mod_exp;
+end g40_mod_exp_revised;
 
-architecture g40_mod_exp_arch of g40_mod_exp is
+architecture g40_mod_exp_revised_arch of g40_mod_exp_revised is
 	-- State machine declarations
-	type states is (reset_state, calculating_state, finished_state);
+	type states is (reset_state, latency_killer_state, calculating_state, finished_state);
 	signal state : states;
 	
 	-- Internal signals
@@ -34,15 +34,17 @@ architecture g40_mod_exp_arch of g40_mod_exp is
 	signal Afloor33401 : STD_LOGIC_VECTOR(16 DOWNTO 0);
 	
 	-- Component declarations
-	component g40_modulo33401
+	component g40_modulo33401_pipelined
 		port ( A : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+				 clk: IN STD_LOGIC;
 				 Afloor33401 : OUT STD_LOGIC_VECTOR(16 DOWNTO 0);
 				 Amod33401 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0));
 	end component;
 	
 	begin
 		-- Component port mappings
-		modulator : g40_modulo33401 port map(A => A,
+		modulator : g40_modulo33401_pipelined port map(A => A,
+															clk => clk,
 															Afloor33401 => Afloor33401,
 															Amod33401 => Amod33401);
 		
@@ -54,11 +56,18 @@ architecture g40_mod_exp_arch of g40_mod_exp is
 					counter <= 0;
 					A <= (0 => '1', others => '0');
 				elsif start = '1' and state = reset_state then
-					state <= calculating_state;
+					state <= latency_killer_state;
 				elsif rising_edge( clk ) then
 					case state is
 						when reset_state =>
 							-- reset_state behavior: handled below
+						when latency_killer_state =>
+							if counter > 11 then
+								counter <= 0;
+								state <= calculating_state;
+							else
+								counter <= counter + 1;
+							end if;
 						when calculating_state =>
 							if counter >= to_integer(unsigned(d)) then
 								state <= finished_state;
@@ -79,6 +88,8 @@ architecture g40_mod_exp_arch of g40_mod_exp is
 					when reset_state =>
 						s <= std_logic_vector(to_unsigned(1, 16));
 						ready <= '0';
+					when latency_killer_state =>
+						-- nothing to do
 					when calculating_state =>
 						-- calculating state behavior: nothing to do
 					when finished_state =>
@@ -91,4 +102,4 @@ architecture g40_mod_exp_arch of g40_mod_exp is
 			begin 
 				s_int <= unsigned(Amod33401);
 		end process;
-end g40_mod_exp_arch;
+end g40_mod_exp_revised_arch;
