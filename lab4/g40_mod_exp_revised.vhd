@@ -26,6 +26,7 @@ architecture g40_mod_exp_revised_arch of g40_mod_exp_revised is
 	
 	-- Internal signals
 	signal counter : integer range 0 to 16383; -- Counter in range of 14 bits, like d
+	signal latency : integer range 0 to 16383; -- Counter in range of 14 bits, like d
 	signal s_int : unsigned(15 downto 0); -- Running modulo: s_int < 33401 always
 	
 	-- Instantiation
@@ -53,29 +54,32 @@ architecture g40_mod_exp_revised_arch of g40_mod_exp_revised is
 			begin
 				if reset = '1' then
 					state <= reset_state;
-					counter <= 0;
+					counter <= 1;
+					latency <= 0;
 					A <= (0 => '1', others => '0');
 				elsif start = '1' and state = reset_state then
+					A <= ("0000000000000000000000" & std_logic_vector(unsigned(c)));
 					state <= latency_killer_state;
 				elsif rising_edge( clk ) then
 					case state is
 						when reset_state =>
 							-- reset_state behavior: handled below
 						when latency_killer_state =>
-							if counter > 11 then
-								counter <= 0;
+							if latency >= 11 then
+								latency <= 0;
 								state <= calculating_state;
 							else
-								counter <= counter + 1;
+								latency <= latency + 1;
 							end if;
 						when calculating_state =>
-							if counter >= to_integer(unsigned(d)) then
-								state <= finished_state;
-								counter <= 0;
-							else
+							if counter < to_integer(unsigned(d)) then
 								A <= ("000000" & std_logic_vector(unsigned(c) * s_int));
 								counter <= ( counter + 1 );
-							end if; -- if counter >= d
+								state <= latency_killer_state;
+							else
+								state <= finished_state;
+								counter <= 1;
+							end if; -- if counter < d
 						when finished_state =>
 							-- finished state behavior: handled below
 					end case; --state

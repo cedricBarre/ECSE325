@@ -81,9 +81,9 @@ BEGIN
 				start <= '0';
 				while ready = '0' loop
 					clk <= '1';
-					wait for 100 ns;
+					wait for 3 ns;
 					clk <= '0';
-					wait for 100 ns;
+					wait for 3 ns;
 				end loop;
 				
 				number <= "0" & number(9 downto 1);
