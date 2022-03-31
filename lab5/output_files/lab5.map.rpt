@@ -1,0 +1,485 @@
+Analysis & Synthesis report for lab5
+Thu Mar 31 16:43:10 2022
+Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis DSP Block Usage Summary
+  9. User-Specified and Inferred Latches
+ 10. Registers Removed During Synthesis
+ 11. General Register Statistics
+ 12. Inverted Register Statistics
+ 13. Port Connectivity Checks: "g40_mod_exp:encryptor|g40_modulo33401:modulator"
+ 14. Port Connectivity Checks: "g40_mod_exp:encryptor"
+ 15. Post-Synthesis Netlist Statistics for Top Partition
+ 16. Elapsed Time Per Partition
+ 17. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2016  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Intel and sold by Intel or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Thu Mar 31 16:43:10 2022       ;
+; Quartus Prime Version           ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
+; Revision Name                   ; lab5                                        ;
+; Top-level Entity Name           ; g40_timestamper                             ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 142                                         ;
+; Total pins                      ; 73                                          ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 0                                           ;
+; Total DSP Blocks                ; 1                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CSEMA5F31C6       ;                    ;
+; Top-level entity name                                                           ; g40_timestamper    ; lab5               ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation      ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; OpenCore Plus hardware evaluation                                               ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; PowerPlay Power Optimization During Synthesis                                   ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 6           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 6           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-6         ;   0.0%      ;
++----------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                       ;
++----------------------------------+-----------------+-----------------+---------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                ; Library ;
++----------------------------------+-----------------+-----------------+---------------------------------------------+---------+
+; g40_modulo33401.vhd              ; yes             ; User VHDL File  ; H:/Desktop/ECSE325/lab5/g40_modulo33401.vhd ;         ;
+; g40_mod_exp.vhd                  ; yes             ; User VHDL File  ; H:/Desktop/ECSE325/lab5/g40_mod_exp.vhd     ;         ;
+; g40_HASH10.vhd                   ; yes             ; User VHDL File  ; H:/Desktop/ECSE325/lab5/g40_HASH10.vhd      ;         ;
+; g40_timestamper.vhd              ; yes             ; User VHDL File  ; H:/Desktop/ECSE325/lab5/g40_timestamper.vhd ;         ;
++----------------------------------+-----------------+-----------------+---------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimate of Logic utilization (ALMs needed) ; 210       ;
+;                                             ;           ;
+; Combinational ALUT usage for logic          ; 401       ;
+;     -- 7 input functions                    ; 0         ;
+;     -- 6 input functions                    ; 2         ;
+;     -- 5 input functions                    ; 2         ;
+;     -- 4 input functions                    ; 3         ;
+;     -- <=3 input functions                  ; 394       ;
+;                                             ;           ;
+; Dedicated logic registers                   ; 142       ;
+;                                             ;           ;
+; I/O pins                                    ; 73        ;
+;                                             ;           ;
+; Total DSP Blocks                            ; 1         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; rst~input ;
+; Maximum fan-out                             ; 147       ;
+; Total fan-out                               ; 1775      ;
+; Average fan-out                             ; 2.57      ;
++---------------------------------------------+-----------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                            ;
++-----------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------+-----------------+--------------+
+; Compilation Hierarchy Node        ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                              ; Entity Name     ; Library Name ;
++-----------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------+-----------------+--------------+
+; |g40_timestamper                  ; 401 (19)            ; 142 (35)                  ; 0                 ; 1          ; 73   ; 0            ; |g40_timestamper                                                 ; g40_timestamper ; work         ;
+;    |g40_HASH10:hash10a|           ; 74 (74)             ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |g40_timestamper|g40_HASH10:hash10a                              ; g40_HASH10      ; work         ;
+;    |g40_HASH10:hash10b|           ; 74 (74)             ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |g40_timestamper|g40_HASH10:hash10b                              ; g40_HASH10      ; work         ;
+;    |g40_mod_exp:encryptor|        ; 234 (67)            ; 43 (43)                   ; 0                 ; 1          ; 0    ; 0            ; |g40_timestamper|g40_mod_exp:encryptor                           ; g40_mod_exp     ; work         ;
+;       |g40_modulo33401:modulator| ; 167 (167)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |g40_timestamper|g40_mod_exp:encryptor|g40_modulo33401:modulator ; g40_modulo33401 ; work         ;
++-----------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------+-----------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-----------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary  ;
++---------------------------------+-------------+
+; Statistic                       ; Number Used ;
++---------------------------------+-------------+
+; Two Independent 18x18           ; 1           ;
+; Total number of DSP blocks      ; 1           ;
+;                                 ;             ;
+; Fixed Point Unsigned Multiplier ; 1           ;
++---------------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                                          ;
++-----------------------------------------------------+-----------------------------------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal                           ; Free of Timing Hazards ;
++-----------------------------------------------------+-----------------------------------------------+------------------------+
+; signature[0]$latch                                  ; g40_mod_exp:encryptor|ready                   ; yes                    ;
+; signature[1]$latch                                  ; g40_mod_exp:encryptor|ready                   ; yes                    ;
+; signature[2]$latch                                  ; g40_mod_exp:encryptor|ready                   ; yes                    ;
+; signature[3]$latch                                  ; g40_mod_exp:encryptor|ready                   ; yes                    ;
+; signature[4]$latch                                  ; g40_mod_exp:encryptor|ready                   ; yes                    ;
+; signature[5]$latch                                  ; g40_mod_exp:encryptor|ready                   ; yes                    ;
+; signature[6]$latch                                  ; g40_mod_exp:encryptor|ready                   ; yes                    ;
+; signature[7]$latch                                  ; g40_mod_exp:encryptor|ready                   ; yes                    ;
+; signature[8]$latch                                  ; g40_mod_exp:encryptor|ready                   ; yes                    ;
+; signature[9]$latch                                  ; g40_mod_exp:encryptor|ready                   ; yes                    ;
+; signature[10]$latch                                 ; g40_mod_exp:encryptor|ready                   ; yes                    ;
+; signature[11]$latch                                 ; g40_mod_exp:encryptor|ready                   ; yes                    ;
+; signature[12]$latch                                 ; g40_mod_exp:encryptor|ready                   ; yes                    ;
+; signature[13]$latch                                 ; g40_mod_exp:encryptor|ready                   ; yes                    ;
+; signature[14]$latch                                 ; g40_mod_exp:encryptor|ready                   ; yes                    ;
+; signature[15]$latch                                 ; g40_mod_exp:encryptor|ready                   ; yes                    ;
+; g40_mod_exp:encryptor|s[0]                          ; g40_mod_exp:encryptor|state.calculating_state ; yes                    ;
+; g40_mod_exp:encryptor|ready                         ; g40_mod_exp:encryptor|state.calculating_state ; yes                    ;
+; g40_mod_exp:encryptor|s[1]                          ; g40_mod_exp:encryptor|state.calculating_state ; yes                    ;
+; g40_mod_exp:encryptor|s[2]                          ; g40_mod_exp:encryptor|state.calculating_state ; yes                    ;
+; g40_mod_exp:encryptor|s[3]                          ; g40_mod_exp:encryptor|state.calculating_state ; yes                    ;
+; g40_mod_exp:encryptor|s[4]                          ; g40_mod_exp:encryptor|state.calculating_state ; yes                    ;
+; g40_mod_exp:encryptor|s[5]                          ; g40_mod_exp:encryptor|state.calculating_state ; yes                    ;
+; g40_mod_exp:encryptor|s[6]                          ; g40_mod_exp:encryptor|state.calculating_state ; yes                    ;
+; g40_mod_exp:encryptor|s[7]                          ; g40_mod_exp:encryptor|state.calculating_state ; yes                    ;
+; g40_mod_exp:encryptor|s[8]                          ; g40_mod_exp:encryptor|state.calculating_state ; yes                    ;
+; g40_mod_exp:encryptor|s[9]                          ; g40_mod_exp:encryptor|state.calculating_state ; yes                    ;
+; g40_mod_exp:encryptor|s[10]                         ; g40_mod_exp:encryptor|state.calculating_state ; yes                    ;
+; g40_mod_exp:encryptor|s[11]                         ; g40_mod_exp:encryptor|state.calculating_state ; yes                    ;
+; g40_mod_exp:encryptor|s[12]                         ; g40_mod_exp:encryptor|state.calculating_state ; yes                    ;
+; g40_mod_exp:encryptor|s[13]                         ; g40_mod_exp:encryptor|state.calculating_state ; yes                    ;
+; g40_mod_exp:encryptor|s[14]                         ; g40_mod_exp:encryptor|state.calculating_state ; yes                    ;
+; g40_mod_exp:encryptor|s[15]                         ; g40_mod_exp:encryptor|state.calculating_state ; yes                    ;
+; Number of user-specified and inferred latches = 33  ;                                               ;                        ;
++-----------------------------------------------------+-----------------------------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++--------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                             ;
++---------------------------------------+----------------------------------------+
+; Register name                         ; Reason for Removal                     ;
++---------------------------------------+----------------------------------------+
+; g40_mod_exp:encryptor|A[26..31]       ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 6 ;                                        ;
++---------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 142   ;
+; Number of registers using Synchronous Clear  ; 14    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 110   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 138   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------+
+; Inverted Register Statistics                      ;
++-----------------------------------------+---------+
+; Inverted Register                       ; Fan out ;
++-----------------------------------------+---------+
+; g40_mod_exp:encryptor|A[0]              ; 7       ;
+; encryption_countdown[1]                 ; 3       ;
+; encryption_countdown[0]                 ; 3       ;
+; g40_HASH10:hash10b|tmpHash[0]           ; 3       ;
+; g40_HASH10:hash10b|tmpHash[2]           ; 3       ;
+; g40_HASH10:hash10b|tmpHash[8]           ; 3       ;
+; g40_HASH10:hash10a|tmpHash[0]           ; 3       ;
+; g40_HASH10:hash10a|tmpHash[2]           ; 3       ;
+; g40_HASH10:hash10a|tmpHash[8]           ; 3       ;
+; g40_HASH10:hash10b|tmpHash[12]          ; 2       ;
+; g40_HASH10:hash10b|tmpHash[10]          ; 2       ;
+; g40_HASH10:hash10a|tmpHash[12]          ; 2       ;
+; g40_HASH10:hash10a|tmpHash[10]          ; 2       ;
+; Total number of inverted registers = 13 ;         ;
++-----------------------------------------+---------+
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "g40_mod_exp:encryptor|g40_modulo33401:modulator"                                           ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                             ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; afloor33401 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------+
+; Port Connectivity Checks: "g40_mod_exp:encryptor" ;
++-----------+-------+----------+--------------------+
+; Port      ; Type  ; Severity ; Details            ;
++-----------+-------+----------+--------------------+
+; d[13..12] ; Input ; Info     ; Stuck at VCC       ;
+; d[9..7]   ; Input ; Info     ; Stuck at VCC       ;
+; d[11..10] ; Input ; Info     ; Stuck at GND       ;
+; d[6..5]   ; Input ; Info     ; Stuck at GND       ;
+; d[4]      ; Input ; Info     ; Stuck at VCC       ;
+; d[3]      ; Input ; Info     ; Stuck at GND       ;
+; d[2]      ; Input ; Info     ; Stuck at VCC       ;
+; d[1]      ; Input ; Info     ; Stuck at GND       ;
+; d[0]      ; Input ; Info     ; Stuck at VCC       ;
++-----------+-------+----------+--------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 142                         ;
+;     CLR               ; 4                           ;
+;     ENA               ; 32                          ;
+;     ENA CLR           ; 92                          ;
+;     ENA CLR SCLR      ; 14                          ;
+; arriav_lcell_comb     ; 401                         ;
+;     arith             ; 148                         ;
+;         1 data inputs ; 14                          ;
+;         2 data inputs ; 133                         ;
+;         3 data inputs ; 1                           ;
+;     normal            ; 102                         ;
+;         1 data inputs ; 11                          ;
+;         2 data inputs ; 44                          ;
+;         3 data inputs ; 40                          ;
+;         4 data inputs ; 3                           ;
+;         5 data inputs ; 2                           ;
+;         6 data inputs ; 2                           ;
+;     shared            ; 151                         ;
+;         0 data inputs ; 20                          ;
+;         1 data inputs ; 19                          ;
+;         2 data inputs ; 64                          ;
+;         3 data inputs ; 48                          ;
+; arriav_mac            ; 1                           ;
+; boundary_port         ; 73                          ;
+;                       ;                             ;
+; Max LUT depth         ; 10.80                       ;
+; Average LUT depth     ; 6.28                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+    Info: Processing started: Thu Mar 31 16:43:00 2022
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off lab5 -c lab5
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file g40_modulo33401.vhd
+    Info (12022): Found design unit 1: g40_modulo33401-g40_modulo33401_arch File: H:/Desktop/ECSE325/lab5/g40_modulo33401.vhd Line: 17
+    Info (12023): Found entity 1: g40_modulo33401 File: H:/Desktop/ECSE325/lab5/g40_modulo33401.vhd Line: 11
+Info (12021): Found 2 design units, including 1 entities, in source file g40_mod_exp.vhd
+    Info (12022): Found design unit 1: g40_mod_exp-g40_mod_exp_arch File: H:/Desktop/ECSE325/lab5/g40_mod_exp.vhd Line: 22
+    Info (12023): Found entity 1: g40_mod_exp File: H:/Desktop/ECSE325/lab5/g40_mod_exp.vhd Line: 12
+Info (12021): Found 2 design units, including 1 entities, in source file g40_hash10.vhd
+    Info (12022): Found design unit 1: g40_HASH10-g40_HASH10_arch File: H:/Desktop/ECSE325/lab5/g40_HASH10.vhd Line: 21
+    Info (12023): Found entity 1: g40_HASH10 File: H:/Desktop/ECSE325/lab5/g40_HASH10.vhd Line: 13
+Info (12021): Found 2 design units, including 1 entities, in source file g40_timestamper.vhd
+    Info (12022): Found design unit 1: g40_timestamper-g40_timestamper_arch File: H:/Desktop/ECSE325/lab5/g40_timestamper.vhd Line: 22
+    Info (12023): Found entity 1: g40_timestamper File: H:/Desktop/ECSE325/lab5/g40_timestamper.vhd Line: 13
+Info (12127): Elaborating entity "g40_timestamper" for the top level hierarchy
+Warning (10540): VHDL Signal Declaration warning at g40_timestamper.vhd(27): used explicit default value for signal "d" because signal was never assigned a value File: H:/Desktop/ECSE325/lab5/g40_timestamper.vhd Line: 27
+Warning (10631): VHDL Process Statement warning at g40_timestamper.vhd(88): inferring latch(es) for signal or variable "signature", which holds its previous value in one or more paths through the process File: H:/Desktop/ECSE325/lab5/g40_timestamper.vhd Line: 88
+Info (10041): Inferred latch for "signature[0]" at g40_timestamper.vhd(88) File: H:/Desktop/ECSE325/lab5/g40_timestamper.vhd Line: 88
+Info (10041): Inferred latch for "signature[1]" at g40_timestamper.vhd(88) File: H:/Desktop/ECSE325/lab5/g40_timestamper.vhd Line: 88
+Info (10041): Inferred latch for "signature[2]" at g40_timestamper.vhd(88) File: H:/Desktop/ECSE325/lab5/g40_timestamper.vhd Line: 88
+Info (10041): Inferred latch for "signature[3]" at g40_timestamper.vhd(88) File: H:/Desktop/ECSE325/lab5/g40_timestamper.vhd Line: 88
+Info (10041): Inferred latch for "signature[4]" at g40_timestamper.vhd(88) File: H:/Desktop/ECSE325/lab5/g40_timestamper.vhd Line: 88
+Info (10041): Inferred latch for "signature[5]" at g40_timestamper.vhd(88) File: H:/Desktop/ECSE325/lab5/g40_timestamper.vhd Line: 88
+Info (10041): Inferred latch for "signature[6]" at g40_timestamper.vhd(88) File: H:/Desktop/ECSE325/lab5/g40_timestamper.vhd Line: 88
+Info (10041): Inferred latch for "signature[7]" at g40_timestamper.vhd(88) File: H:/Desktop/ECSE325/lab5/g40_timestamper.vhd Line: 88
+Info (10041): Inferred latch for "signature[8]" at g40_timestamper.vhd(88) File: H:/Desktop/ECSE325/lab5/g40_timestamper.vhd Line: 88
+Info (10041): Inferred latch for "signature[9]" at g40_timestamper.vhd(88) File: H:/Desktop/ECSE325/lab5/g40_timestamper.vhd Line: 88
+Info (10041): Inferred latch for "signature[10]" at g40_timestamper.vhd(88) File: H:/Desktop/ECSE325/lab5/g40_timestamper.vhd Line: 88
+Info (10041): Inferred latch for "signature[11]" at g40_timestamper.vhd(88) File: H:/Desktop/ECSE325/lab5/g40_timestamper.vhd Line: 88
+Info (10041): Inferred latch for "signature[12]" at g40_timestamper.vhd(88) File: H:/Desktop/ECSE325/lab5/g40_timestamper.vhd Line: 88
+Info (10041): Inferred latch for "signature[13]" at g40_timestamper.vhd(88) File: H:/Desktop/ECSE325/lab5/g40_timestamper.vhd Line: 88
+Info (10041): Inferred latch for "signature[14]" at g40_timestamper.vhd(88) File: H:/Desktop/ECSE325/lab5/g40_timestamper.vhd Line: 88
+Info (10041): Inferred latch for "signature[15]" at g40_timestamper.vhd(88) File: H:/Desktop/ECSE325/lab5/g40_timestamper.vhd Line: 88
+Info (12128): Elaborating entity "g40_HASH10" for hierarchy "g40_HASH10:hash10a" File: H:/Desktop/ECSE325/lab5/g40_timestamper.vhd Line: 52
+Info (12128): Elaborating entity "g40_mod_exp" for hierarchy "g40_mod_exp:encryptor" File: H:/Desktop/ECSE325/lab5/g40_timestamper.vhd Line: 64
+Warning (10036): Verilog HDL or VHDL warning at g40_mod_exp.vhd(34): object "Afloor33401" assigned a value but never read File: H:/Desktop/ECSE325/lab5/g40_mod_exp.vhd Line: 34
+Warning (10492): VHDL Process Statement warning at g40_mod_exp.vhd(56): signal "state" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: H:/Desktop/ECSE325/lab5/g40_mod_exp.vhd Line: 56
+Warning (10492): VHDL Process Statement warning at g40_mod_exp.vhd(85): signal "Amod33401" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: H:/Desktop/ECSE325/lab5/g40_mod_exp.vhd Line: 85
+Warning (10631): VHDL Process Statement warning at g40_mod_exp.vhd(76): inferring latch(es) for signal or variable "s", which holds its previous value in one or more paths through the process File: H:/Desktop/ECSE325/lab5/g40_mod_exp.vhd Line: 76
+Warning (10631): VHDL Process Statement warning at g40_mod_exp.vhd(76): inferring latch(es) for signal or variable "ready", which holds its previous value in one or more paths through the process File: H:/Desktop/ECSE325/lab5/g40_mod_exp.vhd Line: 76
+Info (10041): Inferred latch for "ready" at g40_mod_exp.vhd(76) File: H:/Desktop/ECSE325/lab5/g40_mod_exp.vhd Line: 76
+Info (10041): Inferred latch for "s[0]" at g40_mod_exp.vhd(76) File: H:/Desktop/ECSE325/lab5/g40_mod_exp.vhd Line: 76
+Info (10041): Inferred latch for "s[1]" at g40_mod_exp.vhd(76) File: H:/Desktop/ECSE325/lab5/g40_mod_exp.vhd Line: 76
+Info (10041): Inferred latch for "s[2]" at g40_mod_exp.vhd(76) File: H:/Desktop/ECSE325/lab5/g40_mod_exp.vhd Line: 76
+Info (10041): Inferred latch for "s[3]" at g40_mod_exp.vhd(76) File: H:/Desktop/ECSE325/lab5/g40_mod_exp.vhd Line: 76
+Info (10041): Inferred latch for "s[4]" at g40_mod_exp.vhd(76) File: H:/Desktop/ECSE325/lab5/g40_mod_exp.vhd Line: 76
+Info (10041): Inferred latch for "s[5]" at g40_mod_exp.vhd(76) File: H:/Desktop/ECSE325/lab5/g40_mod_exp.vhd Line: 76
+Info (10041): Inferred latch for "s[6]" at g40_mod_exp.vhd(76) File: H:/Desktop/ECSE325/lab5/g40_mod_exp.vhd Line: 76
+Info (10041): Inferred latch for "s[7]" at g40_mod_exp.vhd(76) File: H:/Desktop/ECSE325/lab5/g40_mod_exp.vhd Line: 76
+Info (10041): Inferred latch for "s[8]" at g40_mod_exp.vhd(76) File: H:/Desktop/ECSE325/lab5/g40_mod_exp.vhd Line: 76
+Info (10041): Inferred latch for "s[9]" at g40_mod_exp.vhd(76) File: H:/Desktop/ECSE325/lab5/g40_mod_exp.vhd Line: 76
+Info (10041): Inferred latch for "s[10]" at g40_mod_exp.vhd(76) File: H:/Desktop/ECSE325/lab5/g40_mod_exp.vhd Line: 76
+Info (10041): Inferred latch for "s[11]" at g40_mod_exp.vhd(76) File: H:/Desktop/ECSE325/lab5/g40_mod_exp.vhd Line: 76
+Info (10041): Inferred latch for "s[12]" at g40_mod_exp.vhd(76) File: H:/Desktop/ECSE325/lab5/g40_mod_exp.vhd Line: 76
+Info (10041): Inferred latch for "s[13]" at g40_mod_exp.vhd(76) File: H:/Desktop/ECSE325/lab5/g40_mod_exp.vhd Line: 76
+Info (10041): Inferred latch for "s[14]" at g40_mod_exp.vhd(76) File: H:/Desktop/ECSE325/lab5/g40_mod_exp.vhd Line: 76
+Info (10041): Inferred latch for "s[15]" at g40_mod_exp.vhd(76) File: H:/Desktop/ECSE325/lab5/g40_mod_exp.vhd Line: 76
+Info (10018): Can't recognize finite state machine "state" because it has a complex reset state
+Info (12128): Elaborating entity "g40_modulo33401" for hierarchy "g40_mod_exp:encryptor|g40_modulo33401:modulator" File: H:/Desktop/ECSE325/lab5/g40_mod_exp.vhd Line: 45
+Warning (13004): Presettable and clearable registers converted to equivalent circuits with latches. Registers power-up to an undefined state, and DEVCLRn places the registers in an undefined state.
+    Warning (13310): Register "g40_mod_exp:encryptor|state.calculating_state" is converted into an equivalent circuit using register "g40_mod_exp:encryptor|state.calculating_state~_emulated" and latch "g40_mod_exp:encryptor|state.calculating_state~1" File: H:/Desktop/ECSE325/lab5/g40_mod_exp.vhd Line: 25
+    Warning (13310): Register "g40_mod_exp:encryptor|state.reset_state" is converted into an equivalent circuit using register "g40_mod_exp:encryptor|state.reset_state~_emulated" and latch "g40_mod_exp:encryptor|state.reset_state~1" File: H:/Desktop/ECSE325/lab5/g40_mod_exp.vhd Line: 25
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 524 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 57 input pins
+    Info (21059): Implemented 16 output pins
+    Info (21061): Implemented 450 logic cells
+    Info (21062): Implemented 1 DSP elements
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 11 warnings
+    Info: Peak virtual memory: 4902 megabytes
+    Info: Processing ended: Thu Mar 31 16:43:10 2022
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:17
+
+

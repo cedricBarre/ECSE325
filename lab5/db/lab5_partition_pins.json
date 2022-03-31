@@ -1,0 +1,301 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "signature[0]",
+					"strict" : false
+				},
+				{
+					"name" : "signature[1]",
+					"strict" : false
+				},
+				{
+					"name" : "signature[2]",
+					"strict" : false
+				},
+				{
+					"name" : "signature[3]",
+					"strict" : false
+				},
+				{
+					"name" : "signature[4]",
+					"strict" : false
+				},
+				{
+					"name" : "signature[5]",
+					"strict" : false
+				},
+				{
+					"name" : "signature[6]",
+					"strict" : false
+				},
+				{
+					"name" : "signature[7]",
+					"strict" : false
+				},
+				{
+					"name" : "signature[8]",
+					"strict" : false
+				},
+				{
+					"name" : "signature[9]",
+					"strict" : false
+				},
+				{
+					"name" : "signature[10]",
+					"strict" : false
+				},
+				{
+					"name" : "signature[11]",
+					"strict" : false
+				},
+				{
+					"name" : "signature[12]",
+					"strict" : false
+				},
+				{
+					"name" : "signature[13]",
+					"strict" : false
+				},
+				{
+					"name" : "signature[14]",
+					"strict" : false
+				},
+				{
+					"name" : "signature[15]",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "rst",
+					"strict" : false
+				},
+				{
+					"name" : "enable",
+					"strict" : false
+				},
+				{
+					"name" : "timestamp[0]",
+					"strict" : false
+				},
+				{
+					"name" : "timestamp[1]",
+					"strict" : false
+				},
+				{
+					"name" : "timestamp[2]",
+					"strict" : false
+				},
+				{
+					"name" : "timestamp[3]",
+					"strict" : false
+				},
+				{
+					"name" : "timestamp[4]",
+					"strict" : false
+				},
+				{
+					"name" : "timestamp[5]",
+					"strict" : false
+				},
+				{
+					"name" : "timestamp[6]",
+					"strict" : false
+				},
+				{
+					"name" : "timestamp[7]",
+					"strict" : false
+				},
+				{
+					"name" : "timestamp[8]",
+					"strict" : false
+				},
+				{
+					"name" : "timestamp[9]",
+					"strict" : false
+				},
+				{
+					"name" : "timestamp[21]",
+					"strict" : false
+				},
+				{
+					"name" : "message[0]",
+					"strict" : false
+				},
+				{
+					"name" : "message[22]",
+					"strict" : false
+				},
+				{
+					"name" : "timestamp[20]",
+					"strict" : false
+				},
+				{
+					"name" : "message[23]",
+					"strict" : false
+				},
+				{
+					"name" : "message[1]",
+					"strict" : false
+				},
+				{
+					"name" : "message[24]",
+					"strict" : false
+				},
+				{
+					"name" : "message[2]",
+					"strict" : false
+				},
+				{
+					"name" : "message[25]",
+					"strict" : false
+				},
+				{
+					"name" : "message[3]",
+					"strict" : false
+				},
+				{
+					"name" : "message[26]",
+					"strict" : false
+				},
+				{
+					"name" : "message[4]",
+					"strict" : false
+				},
+				{
+					"name" : "message[27]",
+					"strict" : false
+				},
+				{
+					"name" : "message[5]",
+					"strict" : false
+				},
+				{
+					"name" : "message[28]",
+					"strict" : false
+				},
+				{
+					"name" : "message[6]",
+					"strict" : false
+				},
+				{
+					"name" : "message[29]",
+					"strict" : false
+				},
+				{
+					"name" : "message[7]",
+					"strict" : false
+				},
+				{
+					"name" : "message[30]",
+					"strict" : false
+				},
+				{
+					"name" : "message[8]",
+					"strict" : false
+				},
+				{
+					"name" : "message[31]",
+					"strict" : false
+				},
+				{
+					"name" : "message[9]",
+					"strict" : false
+				},
+				{
+					"name" : "timestamp[17]",
+					"strict" : false
+				},
+				{
+					"name" : "message[21]",
+					"strict" : false
+				},
+				{
+					"name" : "timestamp[19]",
+					"strict" : false
+				},
+				{
+					"name" : "timestamp[18]",
+					"strict" : false
+				},
+				{
+					"name" : "timestamp[16]",
+					"strict" : false
+				},
+				{
+					"name" : "message[20]",
+					"strict" : false
+				},
+				{
+					"name" : "timestamp[15]",
+					"strict" : false
+				},
+				{
+					"name" : "message[17]",
+					"strict" : false
+				},
+				{
+					"name" : "message[19]",
+					"strict" : false
+				},
+				{
+					"name" : "message[18]",
+					"strict" : false
+				},
+				{
+					"name" : "timestamp[12]",
+					"strict" : false
+				},
+				{
+					"name" : "timestamp[14]",
+					"strict" : false
+				},
+				{
+					"name" : "message[16]",
+					"strict" : false
+				},
+				{
+					"name" : "timestamp[13]",
+					"strict" : false
+				},
+				{
+					"name" : "timestamp[11]",
+					"strict" : false
+				},
+				{
+					"name" : "message[15]",
+					"strict" : false
+				},
+				{
+					"name" : "timestamp[10]",
+					"strict" : false
+				},
+				{
+					"name" : "message[12]",
+					"strict" : false
+				},
+				{
+					"name" : "message[14]",
+					"strict" : false
+				},
+				{
+					"name" : "message[13]",
+					"strict" : false
+				},
+				{
+					"name" : "message[11]",
+					"strict" : false
+				},
+				{
+					"name" : "message[10]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
