@@ -27,7 +27,7 @@ architecture g40_timestamper_arch of g40_timestamper is
 	signal d : std_logic_vector(13 downto 0):= std_logic_vector(to_unsigned(13205, 14));	
 	signal start : std_logic;
 	signal ready : std_logic;
-	signal encryption_countdown : unsigned(2 downto 0);
+	signal encryption_countdown : unsigned(1 downto 0);
 	signal hash10a_enable : std_logic;
 	signal hash10b_enable : std_logic;
 	
@@ -74,19 +74,26 @@ architecture g40_timestamper_arch of g40_timestamper is
 		begin
 			if rst = '1' then
 				start <= '0';
-				encryption_countdown <= to_unsigned(4, 3);
-				
+				encryption_countdown <= to_unsigned(3, 2);
+				hash10b_enable <= '0';
+				hash10a_enable <= '0';
 			elsif rising_edge(clk) then
-				if encryption_countdown = "000" then	
-					start <= '1';
-					hash10b_enable <= '0';
-				elsif encryption_countdown = "001" then
-					hash10b_enable <= '1';
-					hash10a_enable <= '0';
-				elsif encryption_countdown = "100" then
-					hash10a_enable <= '1';
+				if enable = '1' then
+					if encryption_countdown = "00" then	
+						start <= '1';
+						hash10b_enable <= '0';
+					elsif encryption_countdown = "01" then
+						hash10b_enable <= '1';
+						hash10a_enable <= '0';
+					elsif encryption_countdown = "11" then
+						hash10a_enable <= '1';
+					end if;
+					if encryption_countdown /= "00" then
+						encryption_countdown <= encryption_countdown - 1;
+					end if;
 				else
-					encryption_countdown <= encryption_countdown - 1;
+					hash10a_enable <= '0';
+					hash10b_enable <= '0';
 				end if;
 			end if;
 	end process;
