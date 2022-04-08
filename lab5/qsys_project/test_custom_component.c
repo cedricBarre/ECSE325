@@ -67,12 +67,14 @@ int main(void)
 {
 volatile int * component_op1 = (int *) 0xFF200000; // component base address
 volatile int * component_op2 = (int *) 0xFF200004; // component base address + 4
+volatile int * component_op3 = (int *) 0xFF200008; // component base address + 4
 volatile int * led = (int *) 0xFF200440; // red LED address
 volatile int * hex3_hex0 = (int *) 0xFF200420; // 7-segment LED 3-0 address
 volatile int * hex5_hex4 = (int *) 0xFF200410; // 7-segment LED 5-4 address
 volatile int * switchptr = (int *) 0xFF200430; // SW slider switch address
 volatile int * pushbuttons = (int *) 0xFF200400; // pushbuttons address
-int switch_value;
+int switch_value = 0;
+int old_switch_value = 0;
 int pb_val;
 int component_value;
 
@@ -119,8 +121,11 @@ if (CheckTimer(&tv,1)==1) {
   
 pb_val = *(pushbuttons); // read pushbutton values
 switch_value = *(switchptr); // read board switch values
-*(component_op1) = switch_value; // write op1 data to the component
-
+if(switch_value != old_switch_value) {
+    *(component_op3) = 1;// write op1 data to the component
+    *(component_op2) = switch_value;
+    old_switch_value = switch_value;
+}
 component_value = *(component_op1); // read component data (any address will do)
 *(led) = component_value;
 }
